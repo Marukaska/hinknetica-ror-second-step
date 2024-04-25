@@ -1,2 +1,0 @@
-module About::AuthorHelper
-end
