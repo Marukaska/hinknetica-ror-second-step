@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_02_125359) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_02_111135) do
   create_table "answers", force: :cascade do |t|
-    t.text "body", null: false
-    t.boolean "correct", default: false, null: false
+    t.text "body"
+    t.boolean "correct"
     t.integer "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,13 +21,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_02_125359) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "body", null: false
+    t.text "body"
     t.integer "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,8 +35,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_02_125359) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.string "title", null: false
-    t.integer "level", default: 0, null: false
+    t.string "title"
+    t.integer "level"
     t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,8 +44,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_02_125359) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
