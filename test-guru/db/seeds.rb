@@ -20,20 +20,28 @@ users = User.create([
 
 # Создание вопросов
 questions = Question.create([
-                              { body: 'Для перебора элементов списка лучше использовать?', test: tests[0].id  },
-                              { body: 'Расшифровать аббревиатуру ERB?', test: tests[1].id },
-                              { body: 'Какой командой найти количество памяти и используемую подкачку?', test: tests[2].id },
-                              { body: 'Какая компания выпускает Windows?', test: tests[3].id }
+                              { body: 'Для перебора элементов списка лучше использовать?', test_id: tests[0].id  },
+                              { body: 'Расшифровать аббревиатуру ERB?', test_id: tests[1].id },
+                              { body: 'Какой командой найти количество памяти и используемую подкачку?', test_id: tests[2].id },
+                              { body: 'Какая компания выпускает Windows?', test_id: tests[3].id }
                             ])
 
 # Создание ответов
 answers = Answer.create([
-                          { body: 'Метод each', correct: true, question: questions[0].id},
-                          { body: 'Цикл for', correct: false, question: questions[0].id},
-                          { body: 'Embedded Ruby', correct: true, question: questions[1].id},
-                          { body: 'Epic Rap Battles', correct: false, question: questions[1].id },
-                          { body: 'Команда: free', correct: true, question: questions[2].id},
-                          { body: 'Команда: mkdir', correct: false, question: questions[2].id},
-                          { body: 'Microsoft', correct: true, question: questions[3].id},
-                          { body: 'Apple', correct: false, question: questions[3].id }
+                          { body: 'Метод each', correct: true, question_id: questions[0].id},
+                          { body: 'Цикл for', correct: false, question_id: questions[0].id},
+                          { body: 'Embedded Ruby', correct: true, question_id: questions[1].id},
+                          { body: 'Epic Rap Battles', correct: false, question_id: questions[1].id },
+                          { body: 'Команда: free', correct: true, question_id: questions[2].id},
+                          { body: 'Команда: mkdir', correct: false, question_id: questions[2].id},
+                          { body: 'Microsoft', correct: true, question_id: questions[3].id},
+                          { body: 'Apple', correct: false, question_id: questions[3].id }
                         ])
+
+# Создание статуса тестов
+status_tests = StatusTest.create([
+                                 { status: 'done', user_id: users[0].id, test_id: tests[0].id },
+                                 { status: 'in process', user_id: users[0].id, test_id: tests[1].id },
+                                 { status: 'done', user_id: users[0].id, test_id: tests[3].id },
+                                 { status: 'in process', user_id: users[1].id, test_id: tests[3].id }
+                               ])
