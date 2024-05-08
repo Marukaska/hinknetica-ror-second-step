@@ -4,19 +4,23 @@ categories = Category.create([
                                { title: 'Операционные системы' }
                              ])
 
-# Создание тестов
-tests = Test.create([
-                      { title: 'Основы Ruby', level: 0, category_id: categories[0].id },
-                      { title: 'Ruby-on-Rails', level: 2, category_id: categories[0].id },
-                      { title: 'ОС - Linux', level: 1, category_id: categories[1].id },
-                      { title: 'ОС - Windows', level: 0, category_id: categories[1].id }
-                    ])
 
 # Создание пользователей
 users = User.create([
                       { name: 'Иванов Иван', email: 'user1@example.com' },
-                      { name: 'Петров Геннадий', email: 'user2@example.com' }
+                      { name: 'Петров Геннадий', email: 'user2@example.com' },
+                      { name: 'Федор Админыч', email: 'admin@example.com' }
                     ])
+
+
+# Создание тестов
+tests = Test.create([
+                      { title: 'Основы Ruby', level: 0, category_id: categories[0].id, author_id: users[2].id },
+                      { title: 'Ruby-on-Rails', level: 2, category_id: categories[0].id, author_id: users[2].id },
+                      { title: 'ОС - Linux', level: 1, category_id: categories[1].id, author_id: users[2].id },
+                      { title: 'ОС - Windows', level: 0, category_id: categories[1].id, author_id: users[2].id }
+                    ])
+
 
 # Создание вопросов
 questions = Question.create([
