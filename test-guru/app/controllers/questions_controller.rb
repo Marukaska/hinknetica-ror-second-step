@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: [:index, :create]
+  before_action :find_test
   before_action :find_question, only: [:show, :destroy]
 
   def index
