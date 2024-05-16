@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :find_test
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_question, only: [:show, :destroy, :edit, :update]
 
   def index
     @questions = @test.questions
@@ -8,10 +8,10 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    render plain: @question.body
   end
 
   def new
+    @question = @test.questions.new
   end
 
   def create
@@ -25,7 +25,18 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    render plain: "Question deleted successfully"
+    redirect_to test_path(@question.test)
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
+    end
   end
 
   private

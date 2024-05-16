@@ -1,0 +1,12 @@
+<%= turbo_frame_tag 'new_test_form' do %>
+  <%= form_with model: [@test, @question] do |form| %>
+    <%= render 'shared/errors', resource: @question%>
+
+    <p>
+      <%= form.label :body %>
+      <%= form.text_field :body %>
+    </p>
+
+    <p><%= form.submit %></p>
+  <% end %>
+<% end %>
