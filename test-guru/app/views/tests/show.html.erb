@@ -9,6 +9,17 @@
     <%= @test.level %>
   </p>
 
+  <p>
+    <strong>Questions:</strong>
+    <% @test.questions.each do |question| %>
+      <ul>
+        <li>
+          <%= question.body %>
+        </li>
+      </ul>
+    <% end %>
+  </p>
+
 
 <%= link_to 'All Tests', tests_path %> |
 <%= link_to 'Edit', edit_test_path(@test) %>
