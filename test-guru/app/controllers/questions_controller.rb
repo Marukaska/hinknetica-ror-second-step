@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      render plain: "Question created successfully"
+      redirect_to @test, notice: 'Question was successfully created.'
     else
       render plain: "Error creating question"
     end
