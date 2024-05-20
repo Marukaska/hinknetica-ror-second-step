@@ -1,0 +1,5 @@
+<p>
+  <%= question.body %>
+  <%= link_to 'Edit', edit_test_question_path(question.test, question) %> |
+  <%= link_to 'Destroy', test_question_path(question.test, question), data: {"turbo-method": :delete, turbo_confirm: 'Are you sure?'} %>
+</p>

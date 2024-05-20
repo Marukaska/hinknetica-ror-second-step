@@ -1,23 +1,18 @@
 class QuestionsController < ApplicationController
   before_action :find_test
-  before_action :find_question, only: [:show, :destroy]
-
-  def index
-    @questions = @test.questions
-    render plain: @questions.map(&:body).join("\n")
-  end
+  before_action :find_question, only: [:show, :destroy, :edit, :update]
 
   def show
-    render plain: @question.body
   end
 
   def new
+    @question = @test.questions.new
   end
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      render plain: "Question created successfully"
+      redirect_to @test, notice: 'Question was successfully created.'
     else
       render plain: "Error creating question"
     end
@@ -25,7 +20,18 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    render plain: "Question deleted successfully"
+    redirect_to test_path(@question.test)
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
+    end
   end
 
   private
