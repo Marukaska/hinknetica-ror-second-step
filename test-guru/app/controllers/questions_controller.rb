@@ -2,11 +2,6 @@ class QuestionsController < ApplicationController
   before_action :find_test
   before_action :find_question, only: [:show, :destroy, :edit, :update]
 
-  def index
-    @questions = @test.questions
-    render plain: @questions.map(&:body).join("\n")
-  end
-
   def show
   end
 
