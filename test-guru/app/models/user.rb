@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :status_tests
+  has_many :test_passages
   has_many :author_tests, class_name: 'Test', foreign_key: :author_id
-  has_many :tests, through: :status_tests
+  has_many :tests, through: :test_passages
 
   validates :email, presence: true
 

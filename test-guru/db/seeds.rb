@@ -43,9 +43,9 @@ answers = Answer.create([
                         ])
 
 # Создание статуса тестов
-status_tests = StatusTest.create([
-                                 { status: 'done', user_id: users[0].id, test_id: tests[0].id },
-                                 { status: 'in process', user_id: users[0].id, test_id: tests[1].id },
-                                 { status: 'done', user_id: users[0].id, test_id: tests[3].id },
-                                 { status: 'in process', user_id: users[1].id, test_id: tests[3].id }
+status_tests = TestPassage.create([
+                                 { user_id: users[0].id, test_id: tests[0].id, current_question_id: questions[0].id, correct_questions: 0},
+                                 { user_id: users[0].id, test_id: tests[1].id, current_question_id: questions[0].id, correct_questions: 0 },
+                                 { user_id: users[0].id, test_id: tests[3].id, current_question_id: questions[0].id, correct_questions: 0 },
+                                 { user_id: users[1].id, test_id: tests[3].id, current_question_id: questions[0].id, correct_questions: 0 }
                                ])
