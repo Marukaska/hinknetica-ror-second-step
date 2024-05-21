@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
+  before_action :find_test, only: [:new, :create]
   before_action :find_question, only: [:show, :destroy, :edit, :update]
 
   def show
@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test)
+      redirect_to @question
     else
       render :edit
     end
@@ -41,7 +41,8 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
+    # @question = @test.questions.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     render plain: "Question not found", status: :not_found
   end
