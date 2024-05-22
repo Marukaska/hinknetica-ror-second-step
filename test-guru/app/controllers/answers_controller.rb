@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
   end
 
   def new
-    @answer = @question.answer.new
+    @answer = @question.answers.new
   end
 
   def edit
