@@ -42,7 +42,6 @@ class QuestionsController < ApplicationController
 
   def find_question
     @question = Question.find(params[:id])
-    # @question = @test.questions.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     render plain: "Question not found", status: :not_found
   end

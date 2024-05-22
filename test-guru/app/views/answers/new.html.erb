@@ -1,3 +1,4 @@
+<%= turbo_page_requires_reload %>
 <h1>New answer</h1>
 
 <%= render "form", answer: @answer %>
@@ -5,5 +6,5 @@
 <br>
 
 <div>
-  <%#= link_to "Back to question", question_path(@answer.question) %>
+  <%= link_to "Back to question", question_path(@answer.question) %>
 </div>

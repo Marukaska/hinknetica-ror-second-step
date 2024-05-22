@@ -1,4 +1,5 @@
 <%= turbo_frame_tag 'new_test_form' do %>
+  <%= turbo_page_requires_reload %>
   <%= form_with model: [@question, @answer], local: true do |form| %>
     <%= render 'shared/errors', resource: @answer %>
 
