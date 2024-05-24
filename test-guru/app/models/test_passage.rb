@@ -6,6 +6,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_validation :set_next_question, on: :update
 
+  PERCENTAGE_PASSING_TEST_CORRECTLY = 85
+
   def completed?
     current_question.nil?
   end
@@ -18,7 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    percentage_of_correct_answers >= 85
+    percentage_of_correct_answers >= PERCENTAGE_PASSING_TEST_CORRECTLY
   end
 
   def percentage_of_correct_answers
