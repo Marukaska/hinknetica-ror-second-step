@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'users/new'
   resources :answers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -20,6 +22,12 @@ Rails.application.routes.draw do
       post :start
     end
   end
+
+  get :signup, to: 'users#new'
+  resources :users, only: :create
+
+  get :login, to: 'sessions#new'
+  resources :sessions, only: :create
 
   resources :test_passages, only: %i[show update] do
     member do

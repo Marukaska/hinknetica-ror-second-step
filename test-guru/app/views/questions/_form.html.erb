@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'new_test_form' do %>
+<%= turbo_frame_tag 'new_question_form' do %>
   <h1><%= question_header(@test, @question) %></h1>
   <%= form_with model: [@test, @question] do |form| %>
     <%= render 'shared/errors', resource: @question%>
