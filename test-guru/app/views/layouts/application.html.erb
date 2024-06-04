@@ -11,14 +11,14 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
-    <% end %>
-    <%= yield %>
+        <% if logged_in? %>
+          <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
+        <% end %>
+
+        <%= flash_messages %>
+        <%= yield %>
     <footer>
-      <p>
-        &copy; <%= current_year %> <%= github_url('Marukaska', 'hinknetica-ror-second-step') %> - Учебный проект в онлайн-школе <a href="https://thinknetica.com" target="_blank">Thinknetica</a>
-      </p>
+      <%= render 'shared/footer' %>
     </footer>
   </body>
 </html>
