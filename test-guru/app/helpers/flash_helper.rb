@@ -1,8 +1,7 @@
 module FlashHelper
   def flash_messages
-    flash.each do |type, message|
-      concat(content_tag(:div, message, class: "flash #{type}"))
-    end
-    nil
+    flash.map do |type, message|
+      content_tag(:p, message, class: "flash #{type}")
+    end.join.html_safe
   end
 end
