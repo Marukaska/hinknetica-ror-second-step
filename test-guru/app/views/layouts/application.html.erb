@@ -12,17 +12,23 @@
   </head>
 
   <body>
-        <% if logged_in? %>
-          <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
-        <% end %>
 
-        <%= render 'shared/nav' %>
+    <% if user_signed_in? %>
+      <div class="nav user">
+        <p class="welcome-message">
+          Welcome, <b><%= current_user.first_name %> <%= current_user.last_name %></b> Guru
+        </p>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'logout-button' %>
+      </div>
+    <% end %>
 
-        <%= flash_messages %>
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
 
-        <%= yield %>
     <footer>
       <%= render 'shared/footer' %>
     </footer>
+
   </body>
 </html>
