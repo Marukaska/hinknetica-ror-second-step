@@ -3,9 +3,13 @@
 
 <p>
   <% if @test_passage.success? %>
-    <span style="color: green;">You have successfully passed the test with <%= @test_passage.percentage_of_correct_answers %>% correct answers.</span>
+    <span class="test-result success">
+      You have successfully passed the test with <%= @test_passage.percentage_of_correct_answers %>% correct answers.
+    </span>
   <% else %>
-    <span style="color: red;">You did not pass the test. You got <%= @test_passage.percentage_of_correct_answers %>% correct answers.</span>
+    <span class="test-result failure">
+      You did not pass the test. You got <%= @test_passage.percentage_of_correct_answers %>% correct answers.
+    </span>
   <% end %>
 </p>
 

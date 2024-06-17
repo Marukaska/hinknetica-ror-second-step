@@ -1,0 +1,11 @@
+<%= turbo_page_requires_reload %>
+<h1>Editing answer</h1>
+
+<%= render "form", answer: @answer %>
+
+<br>
+
+<div>
+  <%= link_to "Show this answer", [:admin, @answer] %> |
+  <%= link_to "Back to question", admin_question_path(@answer.question) %>
+</div>
