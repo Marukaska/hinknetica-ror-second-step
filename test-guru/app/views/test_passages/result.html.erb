@@ -1,5 +1,5 @@
 <%= turbo_page_requires_reload %>
-<h1>Test Result: <%= @test_passage.test.title %> test was Completed!</h1>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
 <p>
   <% if @test_passage.success? %>

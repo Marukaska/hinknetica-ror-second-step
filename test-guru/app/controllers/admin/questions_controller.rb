@@ -10,17 +10,18 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def create
-    @question = @test.questions.new(question_params)
+    @question = @test.questions.build(question_params)
+
     if @question.save
-      redirect_to @test, notice: 'Question was successfully created.'
+      redirect_to [:admin, @question]
     else
-      render plain: "Error creating question"
+      render :new
     end
   end
 
   def destroy
     @question.destroy
-    redirect_to test_path(@question.test)
+    redirect_to admin_test_path(@question.test)
   end
 
   def edit
@@ -28,7 +29,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
-      redirect_to @question
+      redirect_to [:admin, @question]
     else
       render :edit
     end
